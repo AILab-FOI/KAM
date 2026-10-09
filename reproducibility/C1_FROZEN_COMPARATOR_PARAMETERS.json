@@ -1,0 +1,24 @@
+{
+  "status": "C1 frozen comparator parameters",
+  "dynamic_leiden": {
+    "backend": "igraph",
+    "igraph_version": "1.0.0",
+    "resolution": 1.0,
+    "iterations": 2,
+    "interval": 8,
+    "migration_budget_fraction": 0.2,
+    "min_migration_agents": 1,
+    "selection_protocol": "P2 + P2a predeclared plateau rule"
+  },
+  "parmetis_adaptive": {
+    "api": "ParMETIS_V3_AdaptiveRepart",
+    "interval": 8,
+    "mpi_ranks": 4,
+    "imbalance_tolerance": 1.05,
+    "ipc2redist": 0.1,
+    "vertex_scale": 1000.0,
+    "edge_scale": 1000.0,
+    "migration_scale": 1000.0,
+    "command": "mpirun -np {nproc} ./external/parmetis_adaptive_driver --input {input} --output {output}"
+  }
+}

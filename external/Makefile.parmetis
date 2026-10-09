@@ -1,0 +1,25 @@
+# Build the KAM-Bench ParMETIS AdaptiveRepart driver.
+#
+# Static ParMETIS/METIS builds depend on GKlib.  GNU ld does not pull
+# transitive static-library dependencies automatically, so GKlib must be
+# present explicitly *after* ParMETIS and METIS in the link order.
+CXX ?= mpicxx
+CXXFLAGS ?= -O3 -std=c++17
+PARMETIS_PREFIX ?= /usr/local
+METIS_PREFIX ?= /usr/local
+GKLIB_PREFIX ?= $(METIS_PREFIX)
+
+CPPFLAGS += -I$(PARMETIS_PREFIX)/include -I$(METIS_PREFIX)/include -I$(GKLIB_PREFIX)/include
+LDFLAGS += -L$(PARMETIS_PREFIX)/lib -L$(PARMETIS_PREFIX)/lib64 \
+           -L$(METIS_PREFIX)/lib -L$(METIS_PREFIX)/lib64 \
+           -L$(GKLIB_PREFIX)/lib -L$(GKLIB_PREFIX)/lib64
+# Keep this order for static archives: users first, providers last.
+LDLIBS += -lparmetis -lmetis -lGKlib -lm
+
+all: parmetis_adaptive_driver
+
+parmetis_adaptive_driver: parmetis_adaptive_driver.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $< $(LDFLAGS) $(LDLIBS) -o $@
+
+clean:
+	rm -f parmetis_adaptive_driver

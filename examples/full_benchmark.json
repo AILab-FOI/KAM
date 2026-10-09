@@ -1,0 +1,49 @@
+{
+  "scenarios": ["warehouse", "edge", "enterprise", "hpc"],
+  "methods": [
+    "static",
+    "random_feasible",
+    "greedy_load",
+    "affinity_greedy",
+    "balanced_affinity",
+    "graph_partition",
+    "work_stealing",
+    "c_kam",
+    "d_kam"
+  ],
+  "seeds": [11, 23, 37, 51, 79],
+  "steps": 60,
+  "n_agents": 48,
+  "n_units": 6,
+  "save_assignments": true,
+  "objective": {
+    "kam_imbalance": 1.0,
+    "overload": 2.0,
+    "coordination": 1.0,
+    "management": 0.5,
+    "reorganization": 0.35
+  },
+  "algorithm": {
+    "adapt_interval": 1,
+    "max_ops_per_adaptation": 1,
+    "min_improvement": 0.01,
+    "min_unit_size": 2,
+    "allow_move": true,
+    "allow_merge": true,
+    "allow_split": true,
+    "split_min_size": 6,
+    "split_capacity_rule": "work",
+    "merge_structural_cost": 0.5,
+    "split_structural_cost": 0.5,
+    "random_moves_per_adaptation": 1,
+    "graph_partition_interval": 5,
+    "dkam_observation_delay": 1,
+    "dkam_local_proposals_per_unit": 1,
+    "dkam_candidate_targets_per_unit": 3,
+    "dkam_error_margin": 0.0,
+    "supervisor_fanout": 3,
+    "communication_threshold": 0.0,
+    "carry_backlog": true,
+    "reorganization_consumes_capacity": true
+  }
+}

@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and locally built dependencies
+.venv/
+.venv-*/
+venv/
+env/
+.p2_deps/
+
+# Build artefacts
+build/
+dist/
+*.so
+*.o
+*.a
+external/parmetis_adaptive_driver
+
+# Generated experiment data
+results/
+*_results/
+*_results.zip
+*_RESULTS_RETURN_ME.zip
+*_results_RETURN_ME.zip
+C1_1_results/
+FOLLOWUP_D1_S1_A1_results/
+p2_pilot_results/
+p2a_leiden_extension_results/
+!paper_results/
+!paper_results/**
+
+# Logs and progress/checkpoints
+*.log
+checkpoints/
+progress_state.json
+progress_history.csv
+parallel_progress_history.csv
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*~
+*.swp

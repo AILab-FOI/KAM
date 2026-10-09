@@ -1,0 +1,25 @@
+{
+  "N_1024_role": "descriptive stress point",
+  "N_1024_stress_seeds": [
+    5001,
+    5002,
+    5003
+  ],
+  "N_32_to_512_seeds": [
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007,
+    5008,
+    5009,
+    5010
+  ],
+  "adopted_before_any_N1024_run_completed": true,
+  "id": "S1.1-computational-feasibility-amendment",
+  "parallel_execution": true,
+  "primary_scaling_fit": "N=32..512 with 10 seeds per size",
+  "reason": "The first N=1024 C-KAM run exceeded six hours while using one CPU core; the amendment changes only replication count and execution scheduling, not the scientific algorithms, parameters, workloads, steps, or metrics."
+}

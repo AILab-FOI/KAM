@@ -1,0 +1,45 @@
+{
+  "status": "P1 candidate-frozen; do not call confirmatory until Leiden and external HPC comparator are installed",
+  "domain_model_version": "P1.0",
+  "calibration_seeds": [
+    1001,
+    1003,
+    1007,
+    1009,
+    1013,
+    1019,
+    1021,
+    1031,
+    1033,
+    1039
+  ],
+  "independent_pathology_validation_seeds": [
+    1103,
+    1109,
+    1117
+  ],
+  "objective_weights": {
+    "kam_imbalance": 1.0,
+    "overload": 3.5827434199646797,
+    "coordination": 0.595501105759583,
+    "management": 0.9698899891591157,
+    "reorganization": 2.1348012771934974
+  },
+  "min_improvement": 0.01489410745489643,
+  "dkam_error_margin": 0.5465020666213503,
+  "algorithm_common": {
+    "adapt_interval": 2,
+    "max_ops_per_adaptation": 1,
+    "min_unit_size": 2,
+    "split_min_size": 8,
+    "split_capacity_rule": "work",
+    "merge_structural_cost": 0.5,
+    "split_structural_cost": 0.5,
+    "dkam_observation_delay": 1,
+    "dkam_local_proposals_per_unit": 1,
+    "dkam_candidate_targets_per_unit": 3,
+    "communication_threshold": 0.0,
+    "carry_backlog": true,
+    "reorganization_consumes_capacity": true
+  }
+}

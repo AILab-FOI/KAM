@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kam-bench"
+version = "0.4.0rc2"
+description = "Reproducible multi-domain simulator for centralized and holonic decentralized KAM adaptation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "pandas>=2.0", "scipy>=1.11", "networkx>=3.2"]
+
+[project.optional-dependencies]
+leiden = ["igraph>=0.11.8"]
+
+[project.scripts]
+kam-bench = "kam_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["kam_bench*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

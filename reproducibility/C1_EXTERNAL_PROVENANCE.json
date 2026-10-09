@@ -1,0 +1,9 @@
+{
+  "gklib_commit": "3b7d61b9f885063c89901f3901fb4426f9cfb58f",
+  "metis_commit": "272d4a91c5f66c92327493339a476c553ebf1f5d",
+  "parmetis_commit": "7436de671433c248e4203e1640a65b778845e6fc",
+  "driver_sha256": "59fbdbad198313aa7636c92ccb2fc93a62c5905de39b4a3a87127ac007352fce",
+  "timestamp_utc": "2026-10-02T22:11:05Z",
+  "mpi_launcher": "mpirun -np {nproc}",
+  "mpi_ranks": "4"
+}

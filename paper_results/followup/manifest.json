@@ -1,0 +1,3545 @@
+{
+  "c1_1_reference": {
+    "a1_reference_rows": 120,
+    "available": true,
+    "d1_reference_rows": 120,
+    "events_sha256": "3feb78e95ec9e838b1288a49b65e5d7d24db6f0e6309a4086ca23d5df6fe5038",
+    "path": "/home/markus/Dropbox/myScience/KAM/kam_bench_p2_runpack_linkfix/C1_1_results",
+    "run_summary_sha256": "868f3a513ef52a1213ba4a3b7c2b1fa48cefb521c5b4ddb42f5e451a719115bf",
+    "step_metrics_sha256": "754f1b2a6718478cd42272b195262f2266a49ab724cf4eed23986a9bc92c6c8e"
+  },
+  "context": {
+    "base_config_sha256": "53158f2232d8b02cd774e98ab43189ac12c1c4574df461177ef32bd0edaffd12",
+    "blocks": [
+      "D1",
+      "S1",
+      "A1"
+    ],
+    "context_sha256": "c82b93b436a44cc535bf35e43638da147a483447880422ff791023dc7e1de64b",
+    "design_sha256": "4bdf617431d205b0119e95e67ad5049fa945d797a554485610c760938b0cff93",
+    "protocol_id": "D1-S1-A1-followup-v1",
+    "runner_sha256": "971536e58e973e52ae60b2c3ea8fe14e8823c56854b0b8335d8318111c868665",
+    "scientific_source_sha256": {
+      "__init__.py": "617daefcd9f9b1b03b0465fa546431fca717c60539374492186e45c171d72d05",
+      "algorithms.py": "28bd000826ce1f4c086e3d87e129655f02cb800f8b35f57318e6f9a2aee0c098",
+      "cli.py": "5b3647ca6a2c944c0ae7174d31717fe1bfb9daf6d6770f60f8781fae1f3f3ff6",
+      "config.py": "97570e63ea580c5e10bcd9b5f9fe442433d60fb408d93d8ac1c2d1c56a8502a0",
+      "experiments.py": "ac62d2214b2a71bb6a9f3fa12b7c7453520c10940b5918e260cbf47272e26d69",
+      "external_hpc.py": "76a9a79604a614d8c794b8ccd7a89f6719e46197933649d13f0ac922705e5a30",
+      "metrics.py": "9cc1abbb4eafddb478aee0910151c54a81f84c944ff652acb2884bbf8be6fc88",
+      "model.py": "663b6bad00acb8351358c9e9c78abcb808603b574d38992488f0633eda2bbe52",
+      "scenarios.py": "861ad59a2b8058dcb65205f6c624be27de8b29cc4369cb34135db192639a010f",
+      "simulation.py": "15ec839ce56fa7eb5d0586cd3f8f05062ed77501043a5a9097fd1f57e6c3c1fb",
+      "statistics.py": "1a61f459ae1776d45b68632383bfcfcc4551f4f34b41212d38097e7a1fb4317d",
+      "trace_io.py": "56157e2066aa57f162ebfaccecfe51dea9232b2a9f3c471aa4a6ab85b6e8dc8e"
+    },
+    "smoke": false
+  },
+  "created_utc": "2026-10-07T20:47:45.788040+00:00",
+  "design": {
+    "A1": {
+      "method": "c_kam",
+      "n_agents": 64,
+      "n_units": 8,
+      "new_variants": {
+        "move_merge": {
+          "allow_merge": true,
+          "allow_move": true,
+          "allow_split": false
+        },
+        "move_only": {
+          "allow_merge": false,
+          "allow_move": true,
+          "allow_split": false
+        },
+        "move_split": {
+          "allow_merge": false,
+          "allow_move": true,
+          "allow_split": true
+        }
+      },
+      "parameter_rule": "Only operator availability varies; objective, thresholds, costs, adaptation cadence, and candidate generation remain C1.1-frozen.",
+      "purpose": "C-KAM operator ablation",
+      "reference_variant_from_C1_1": "full_move_merge_split",
+      "seeds": [
+        3001,
+        3002,
+        3003,
+        3004,
+        3005,
+        3006,
+        3007,
+        3008,
+        3009,
+        3010,
+        3011,
+        3012,
+        3013,
+        3014,
+        3015,
+        3016,
+        3017,
+        3018,
+        3019,
+        3020,
+        3021,
+        3022,
+        3023,
+        3024,
+        3025,
+        3026,
+        3027,
+        3028,
+        3029,
+        3030
+      ],
+      "steps": 200
+    },
+    "D1": {
+      "method": "d_kam",
+      "n_agents": 64,
+      "n_units": 8,
+      "new_delays": [
+        0,
+        2,
+        4,
+        8
+      ],
+      "parameter_rule": "Only dkam_observation_delay varies; all other C1.1 D-KAM parameters, including dkam_error_margin, remain frozen.",
+      "purpose": "D-KAM robustness to stale information",
+      "reference_delay_from_C1_1": 1,
+      "seeds": [
+        3001,
+        3002,
+        3003,
+        3004,
+        3005,
+        3006,
+        3007,
+        3008,
+        3009,
+        3010,
+        3011,
+        3012,
+        3013,
+        3014,
+        3015,
+        3016,
+        3017,
+        3018,
+        3019,
+        3020,
+        3021,
+        3022,
+        3023,
+        3024,
+        3025,
+        3026,
+        3027,
+        3028,
+        3029,
+        3030
+      ],
+      "steps": 200
+    },
+    "S1": {
+      "agents_per_initial_unit": 8,
+      "methods": [
+        "c_kam",
+        "d_kam"
+      ],
+      "n_agents": [
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024
+      ],
+      "parameter_rule": "All C1.1 algorithm parameters remain frozen; only system size and corresponding initial unit count vary.",
+      "purpose": "C-KAM vs D-KAM computational/coordination scalability",
+      "seeds": [
+        5001,
+        5002,
+        5003,
+        5004,
+        5005,
+        5006,
+        5007,
+        5008,
+        5009,
+        5010
+      ],
+      "steps": 200
+    }
+  },
+  "environment": {
+    "numpy": "2.2.6",
+    "optional_backends": {
+      "igraph": "1.0.0",
+      "networkx": "3.4.2"
+    },
+    "pandas": "2.3.3",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "scipy": "1.15.3"
+  },
+  "expected_production_run_count": 1264,
+  "notes": {
+    "C1_1_reuse": "D1 delay=1 and A1 full C-KAM are not rerun; when the local C1_1_results directory is available, only their relevant reference rows/diagnostics are copied into the follow-up output.",
+    "change_control": "No C1.1 objective weight, adaptation threshold, D-KAM safety margin, operator cost, or algorithm parameter is retuned. D1 varies delay; S1 varies system size; A1 varies only operator availability.",
+    "checkpoint_unit": "one complete block/scenario/condition/seed/method run",
+    "paired_design": "Within each D1/A1 trace group and each S1 scenario-size-seed group, methods/conditions receive the identical exogenous trace.",
+    "resume_rule": "A checkpoint is reused only if protocol, runner/context, trace, item, and effective AlgorithmConfig hashes match."
+  },
+  "operational_amendment": {
+    "N_1024_role": "descriptive stress point",
+    "N_1024_stress_seeds": [
+      5001,
+      5002,
+      5003
+    ],
+    "N_32_to_512_seeds": [
+      5001,
+      5002,
+      5003,
+      5004,
+      5005,
+      5006,
+      5007,
+      5008,
+      5009,
+      5010
+    ],
+    "adopted_before_any_N1024_run_completed": true,
+    "id": "S1.1-computational-feasibility-amendment",
+    "parallel_execution": true,
+    "primary_scaling_fit": "N=32..512 with 10 seeds per size",
+    "reason": "The first N=1024 C-KAM run exceeded six hours while using one CPU core; the amendment changes only replication count and execution scheduling, not the scientific algorithms, parameters, workloads, steps, or metrics."
+  },
+  "parallel_runner_id": "D1-S1-A1-parallel-resume-v1",
+  "plan_run_count": 1264,
+  "protocol_id": "D1-S1-A1-followup-v1",
+  "trace_manifest": [
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3001,
+      "steps": 200,
+      "trace_sha256": "1bedca07195b3d42a92d3da0d7870535272902fdb1a16a0538247897ec705404"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3002,
+      "steps": 200,
+      "trace_sha256": "ef9ac780e6bf3df4cd0650879a825bbebbd3b73193c48305bf9abd96765897be"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3003,
+      "steps": 200,
+      "trace_sha256": "a8fa52fdfa3710843153dabf24a2320c91536303047a5ac801679bf2a4199469"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3004,
+      "steps": 200,
+      "trace_sha256": "3c342bd0554e86b8c859f819433de812d4038861a1e1d2248e5f457ee40b0b0e"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3005,
+      "steps": 200,
+      "trace_sha256": "f8405b9804dda33d6ea3658aee1a4f1972f5df0e1cc3f7774b8b4511dbed6c6f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3006,
+      "steps": 200,
+      "trace_sha256": "18321aef74ead5e121691860acab0b8ae3cd51a432777bc576c069d5def461e0"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3007,
+      "steps": 200,
+      "trace_sha256": "c0624a3fd943756e6db1e0edd5cc963472554872d92de1457fdea83c7ddb877a"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3008,
+      "steps": 200,
+      "trace_sha256": "921637a077767aa6cb4408f16412366ed86d2b8cf8fece828e48d6209ed324cd"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3009,
+      "steps": 200,
+      "trace_sha256": "2e6c473fc9ebbe87fd857fa294fad7877a89398587c13d35c82a2444007946da"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3010,
+      "steps": 200,
+      "trace_sha256": "f3fafd9a65164a7a89a657e6f6d1214eb9b15972bdb590b36f6acfae09f9b78b"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3011,
+      "steps": 200,
+      "trace_sha256": "a05434ce2c2d88812ce13b88c93a0956947765f563f10ab548dfb5ff9950eabd"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3012,
+      "steps": 200,
+      "trace_sha256": "f66e4f97f5716a9bc5b8e07142ccb3d0cc09f8d76e67a4d1080771f0aba0f8eb"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3013,
+      "steps": 200,
+      "trace_sha256": "b6d043cb1a81f41b1948950ded3d01c0db0f51d1f07897e52a5f128b1a8d0ae5"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3014,
+      "steps": 200,
+      "trace_sha256": "1561310e129a8d7e7b5a97e3f9f1427b56ff95a4b598da5453fae25d1a0c5096"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3015,
+      "steps": 200,
+      "trace_sha256": "5930863f1d4e8f5e2a29804c3f0deb69d5bd49ee4b2df826a90e7bfc1e9e288c"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3016,
+      "steps": 200,
+      "trace_sha256": "c4e31e78e2fcb973eeb3a308f78e20b950d67741d20f7dcf32b42e2144c0906e"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3017,
+      "steps": 200,
+      "trace_sha256": "9012c2ee3313d7d1af0facaeba259a9d4ea40117204eb00b4d0c38c2b509451f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3018,
+      "steps": 200,
+      "trace_sha256": "e04c41440c8955caa42dd4cf334314ae13af97308fe9734580c26f505781789c"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3019,
+      "steps": 200,
+      "trace_sha256": "8a9249a9d2d7c0b646028c62560730443ba4d98b2b4789a39b034a090c390c7f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3020,
+      "steps": 200,
+      "trace_sha256": "621d3f51f0606dde4d4ecbbd5a9ddd3668f785140d5c47470e5ca98f8845a382"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3021,
+      "steps": 200,
+      "trace_sha256": "9f45970155e690562f0517454f587c3051a0009b82c84f8585387e65a18e1cd9"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3022,
+      "steps": 200,
+      "trace_sha256": "cdb40200743fe850298295a79ff6cda5d6ad8c5d38e73b75d60683cdfe228074"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3023,
+      "steps": 200,
+      "trace_sha256": "9de6ac4cad9b8d98e660395b16513b7cb6e430e96c6dd0acad7026d2d613cf79"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3024,
+      "steps": 200,
+      "trace_sha256": "f36fc22d37cf0bf11970787999263ed318c77b69db9cdb8ee91526f1d96444db"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3025,
+      "steps": 200,
+      "trace_sha256": "4b039018f133d1232976e5d42a833bf93a68842b1f7ab6942007e548a0bd490b"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3026,
+      "steps": 200,
+      "trace_sha256": "466ff29a667a50043b2253849c404ee8825327e5ede254bdd94776367440bb7c"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3027,
+      "steps": 200,
+      "trace_sha256": "03782e499a3ae167155c2f159ee3016e366b7ed5e14d42201132c354358b7c01"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3028,
+      "steps": 200,
+      "trace_sha256": "4aec00241562e4baecbbb2318fb9a853b9ff891da3631b34cb04c39a5d4d7235"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3029,
+      "steps": 200,
+      "trace_sha256": "ff14aacad47999ed103f61d9973dea861d2d6f1111a7c41d40692acadc564735"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 3030,
+      "steps": 200,
+      "trace_sha256": "78f0fadf6de7e977b70605a3edb6c851aa6842d1c4529f332d0f5fbc5c8ee9aa"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3001,
+      "steps": 200,
+      "trace_sha256": "bb79467fd14ad7a611553a2d5d663c14382b78012716f274928a6bec1b03ccbe"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3002,
+      "steps": 200,
+      "trace_sha256": "ceb64d44fc30c6a36619bda71f5f2e342c2b0459270bd0da91ea2b23262b8b0f"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3003,
+      "steps": 200,
+      "trace_sha256": "f89f2fca5bc2e9df3a30c04c104cdb7e29ed147358a295657bf0da1a4431363b"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3004,
+      "steps": 200,
+      "trace_sha256": "a523e0c47665066708300ebd18b78a6b9f4a99bf02b8e7f2c8ea8f1bda923353"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3005,
+      "steps": 200,
+      "trace_sha256": "dd1660c732d8571d9299477c27ffa5a4abc3d44e477a12e3a7c1932e8a39ede2"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3006,
+      "steps": 200,
+      "trace_sha256": "fe2f0d4adabf848992a292316cb0df6899dda86a2a2c77d55f444791b09d9ed8"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3007,
+      "steps": 200,
+      "trace_sha256": "122b7335b5781c6c3f86f8e5cba17f1930a334a9c565c970996a76f9336566f6"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3008,
+      "steps": 200,
+      "trace_sha256": "b852a03f57a30d970b70dd4011278efc5f228004f44b36b0de0d310e488ba900"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3009,
+      "steps": 200,
+      "trace_sha256": "f2dac9dc9047149f0d2b99187180b6d68fb8710c17e357e725410441af10e350"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3010,
+      "steps": 200,
+      "trace_sha256": "3b28e66cfff82097ee232a4f822500c1c3cafb60c519977771053253e9c3a5f5"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3011,
+      "steps": 200,
+      "trace_sha256": "50c64df66bb357679c1abb8bf58e528bc511313a8d515b77e00863a4fa1470c3"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3012,
+      "steps": 200,
+      "trace_sha256": "804dffdbdb6b26da7dc78a0c6542511469c2d587a5dbc8143af6d4e6bbc9969a"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3013,
+      "steps": 200,
+      "trace_sha256": "b63c5b939b0ced8f465f13a64ccd54ca66a974398f8eb9b90c35d21da24aa95c"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3014,
+      "steps": 200,
+      "trace_sha256": "5e4b8c652ed29aca0bfbc0cedd9aac8987fd82dd63b5c62812def372787535fb"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3015,
+      "steps": 200,
+      "trace_sha256": "ff65c5fde89844bd246156afd20885e76c8c3297a0bb970b13e9bc64b672b4de"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3016,
+      "steps": 200,
+      "trace_sha256": "9f4fd7b5c791b2e50405c0fe6eb67d8ac19be5b5583c3430abeb8cfa76aa5138"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3017,
+      "steps": 200,
+      "trace_sha256": "8f6e0554df1d87bede4652aa884c7e87a8fe4922ba9a8b1a8f8c72e45f40fc14"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3018,
+      "steps": 200,
+      "trace_sha256": "326326c90a8b44ddb1a6ab5b516cdfb8ef242aefc8249c6c2f18a84c6f125af1"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3019,
+      "steps": 200,
+      "trace_sha256": "3d0c7efd9617225cf42e55d4d2bdcc3edc032a481f35b2f2bf029f697aa1da42"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3020,
+      "steps": 200,
+      "trace_sha256": "47e3b5241590089024c61b47f08eda3829af6785451090a27a6d139e7c6376bf"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3021,
+      "steps": 200,
+      "trace_sha256": "af4e54168638cad7188c1c1d302b9dec731e0979b225cd4a1789bd88c4f0a418"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3022,
+      "steps": 200,
+      "trace_sha256": "21859bfe0ff3bb9b96b3765e7dac555765196c8cfc0682a018ba55327949e8fb"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3023,
+      "steps": 200,
+      "trace_sha256": "dcde86d2910925705811af5ae5ebaafb9c0c4bec051497fdfc9d2df89c06a5ff"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3024,
+      "steps": 200,
+      "trace_sha256": "2611544ce8f961f14027c9c3f77d39430dc075554ad985073392fb2fa0cf86f4"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3025,
+      "steps": 200,
+      "trace_sha256": "a78000ae7801c95f05994b4bee549ab986236b23857a9e222e1a3ac566a16696"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3026,
+      "steps": 200,
+      "trace_sha256": "7d3aeea79b50d352229125b1990193cecc586f841dc67c9618052e8b4e973cc4"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3027,
+      "steps": 200,
+      "trace_sha256": "5b74bc2bc54407da0dfc56d40c38e8174d55f0afd4688e38554eead3d24ce448"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3028,
+      "steps": 200,
+      "trace_sha256": "e4197f4da3d766e95b717dc0cbfd8e977b7c2c70e526acfb150b4cf28d5860c6"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3029,
+      "steps": 200,
+      "trace_sha256": "0064c4b7cb57bc3195c1b65818b4cd5770e7037fb8f4be7699aa7ab2581ff825"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 3030,
+      "steps": 200,
+      "trace_sha256": "b151ea5e56abe1c29afa60782e66e6a8d426117ead382e7e20124afc8783deeb"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3001,
+      "steps": 200,
+      "trace_sha256": "f288874961e11fb6387b04f904b850c77fb13f9554268fdb3c60bc122e723578"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3002,
+      "steps": 200,
+      "trace_sha256": "09d1f19f5c1ed5df115bef13ec1fa1177b9e57f882797d2d77805c1c74e783ac"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3003,
+      "steps": 200,
+      "trace_sha256": "e288241d346768b6751c621526c4b6ee4f172414038f543aff0485ae90979be0"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3004,
+      "steps": 200,
+      "trace_sha256": "6f5500d06fa951e90505ffa3a2212db74957448786d06f8c600ff91086fb780e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3005,
+      "steps": 200,
+      "trace_sha256": "06bc06f67f0e8b30bf821ba8601abb5f3dfcaf4e8f74ab7bfe767b192673dbb1"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3006,
+      "steps": 200,
+      "trace_sha256": "819e0fd0bc7471b941c88999aab642fd0c328fd7d6bee24b7b5eb433ca3046f9"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3007,
+      "steps": 200,
+      "trace_sha256": "b0b543cbbb3eff250cfb7abbcba8959bfc47f50ba6e1e55324b37d6c19f222d1"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3008,
+      "steps": 200,
+      "trace_sha256": "60c6606ffc3a3dee520806b789bbc3438961c443ee369b9ac9f5515f2221405c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3009,
+      "steps": 200,
+      "trace_sha256": "293a8427bb791bb7222476bcf4d11c7b29c54bf91ce6de1e6bceb4978c16ca73"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3010,
+      "steps": 200,
+      "trace_sha256": "2ead396ed313122944394044538c6b505be6a2f10ba350c30708d68a09c3674d"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3011,
+      "steps": 200,
+      "trace_sha256": "12f89da656e142ceab9b2e8c80b597e50c3fbd621097cd7100c129ec98e72c0e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3012,
+      "steps": 200,
+      "trace_sha256": "93daded0f17a225603f1cb9c6f70f83d0a1d649b4c2ac7dfc8d95eecf7358b97"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3013,
+      "steps": 200,
+      "trace_sha256": "72dce061fa21331c6ab53418a91a775dcb2046aba67d9475bab5ef8b82dc522c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3014,
+      "steps": 200,
+      "trace_sha256": "78c6f32919288d3c526308c67423bf78c0060ee2f519e0ea9841c0dfdbd60fc5"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3015,
+      "steps": 200,
+      "trace_sha256": "947992da15523419027ac5e3909d5819176f9623cb3105044d17f527d1322ce7"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3016,
+      "steps": 200,
+      "trace_sha256": "669cbe4f123791d8e7f171487a122732278c753a840d4604261fa8b7db7d611f"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3017,
+      "steps": 200,
+      "trace_sha256": "7b2abb2ca375ae52b159b67b403dca3eee23d1eccc35ecbeac8a926d6834e51c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3018,
+      "steps": 200,
+      "trace_sha256": "f42629c3619bb509f89d7a2dde99c62e1441cabd17130af69893d9f5312fd088"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3019,
+      "steps": 200,
+      "trace_sha256": "6c877495134637301e0b91fa93ff5340b1fbcf80b848eddd4bd1fa74e26d273e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3020,
+      "steps": 200,
+      "trace_sha256": "6751feb92a4c591c028b45a8c27129ae077be4aa829258f2aebc827636100544"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3021,
+      "steps": 200,
+      "trace_sha256": "e3cf8e1730c3bfe68b8162b5b4ff92f3b442d287c500eb3c7611a5948016acdb"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3022,
+      "steps": 200,
+      "trace_sha256": "47875afa66048c2cbae18f89dc17ffaa2e38a3c30ea3017ee990ed1ee4ccf2cc"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3023,
+      "steps": 200,
+      "trace_sha256": "801a70232c1db0894cb2a8ee55be9bab83775054d56f73106e2ba2d01a19d830"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3024,
+      "steps": 200,
+      "trace_sha256": "a892589309cfcf4d27d1909762ea5e13b967bd568867623ac98009993603272e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3025,
+      "steps": 200,
+      "trace_sha256": "9401855d0c463e17c15058e5abc58a76c3df81ce8c12113abbf2041d5ef235db"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3026,
+      "steps": 200,
+      "trace_sha256": "8d1a252cac7f91c62daaa4675a996958edfcbf2a726a7e7532a371e248af788e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3027,
+      "steps": 200,
+      "trace_sha256": "020aff05286046e5735210f07a53358d12e2f36d5784a7e4999505427fe4497d"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3028,
+      "steps": 200,
+      "trace_sha256": "1603b83aace3352bbac397aec6bc01ea4954981dbc8d1bb58061c517d8e9d578"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3029,
+      "steps": 200,
+      "trace_sha256": "640c6245cc7e27e3b5acf7911e048964fe391d66b71c0a25d1081348af5428b0"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 3030,
+      "steps": 200,
+      "trace_sha256": "2fb069033b24e51b99ee846c5b4a468112d830269ad656ab0d577b9214175b70"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3001,
+      "steps": 200,
+      "trace_sha256": "d507ed2c5703514133ab2d8d996660c8b87a4e22f83da0478211f130c0e64ddf"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3002,
+      "steps": 200,
+      "trace_sha256": "6e147eacb8d429c3473f2947f9f86e06fdedb3aa6e1e642cf0a6d314291ea36e"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3003,
+      "steps": 200,
+      "trace_sha256": "306046ce449322e1c5dba737ccee50fdc2b15bad411fb595822b094f51b74471"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3004,
+      "steps": 200,
+      "trace_sha256": "f30191845004cfcd6e184efccbf37c999ad0068e05a7445f4ba8b448594df289"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3005,
+      "steps": 200,
+      "trace_sha256": "2cccfc61a91d1b2b56a931baa11ae1e9365181f7932288833e43d31eac8b0cce"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3006,
+      "steps": 200,
+      "trace_sha256": "e38d3f59816593de1b07a0cd40480971cecb666d51e2976b17975c9ff2f8cd49"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3007,
+      "steps": 200,
+      "trace_sha256": "faa83d0ddcde5495327700407b3ffe730547550fb478d0987d2d63838149a21e"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3008,
+      "steps": 200,
+      "trace_sha256": "b79e29d1cde01eb522faafb3f37defb15e4bb16ca0fb2c3efc428ea93987ba3f"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3009,
+      "steps": 200,
+      "trace_sha256": "8f2313eb7f1f7fb921f059eb5b4f3fe546d15cdfa85d2cab4660299b741b9a6f"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3010,
+      "steps": 200,
+      "trace_sha256": "f41ca3580b33692aafc9d3a124b9f2a4be8408eff9643c71f5ee742dadb58a31"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3011,
+      "steps": 200,
+      "trace_sha256": "f9aeb13237c4772f15a767ad19e08717c0516785ea84e6400a2985876a98cd54"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3012,
+      "steps": 200,
+      "trace_sha256": "805739ad6929591c12d8a8b3d3339e19697f9b2129a1b5ea791715b35c9aee2c"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3013,
+      "steps": 200,
+      "trace_sha256": "97f580643657f1cd8b7e0dae17a3252413e8b0cee65eb655835f2bfdc039c00c"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3014,
+      "steps": 200,
+      "trace_sha256": "afb43f1e55557aa9ad4f36cca32196b98c4b3e1cb60dba242484835c20b2a595"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3015,
+      "steps": 200,
+      "trace_sha256": "9f854d82ab732974733010489a6d77ef5a8074a10ec94cda7c70b9d6866e8c49"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3016,
+      "steps": 200,
+      "trace_sha256": "01b1294619f5f9ea1663e772c7d4de653164eee98a087bb14341897b1377b9ca"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3017,
+      "steps": 200,
+      "trace_sha256": "8247555385f3d297ef00fc036b9f79e69bb9f653924e133ebc6cc978080035e9"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3018,
+      "steps": 200,
+      "trace_sha256": "45bf227c84944ac22383e334bb8fe8f984fa718fca32704ce99721f2b1918d88"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3019,
+      "steps": 200,
+      "trace_sha256": "7441768902c1028debcfde2bec6279ce78144360cf8503eabc36f65582a9c833"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3020,
+      "steps": 200,
+      "trace_sha256": "729dd46c314a802b286e93329fe164477610d2915d876d8b54429ced6cc1f52f"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3021,
+      "steps": 200,
+      "trace_sha256": "9239912eb4bc781e5dcd1cb9f1c63fd846bfa999cfca2f918b98f9050fc505c9"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3022,
+      "steps": 200,
+      "trace_sha256": "786a2939d63aaf2da7180ea58ae75c80cf1a250da1fd57ec339bca70d7fb6da3"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3023,
+      "steps": 200,
+      "trace_sha256": "b3beb0dc428a97ceaccdce4efa37bd6af0d3f4aaed7ead2469e65b29d250d548"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3024,
+      "steps": 200,
+      "trace_sha256": "02f5535471f0da59779f6f9437eb72561c43bae7e0b362f515c11f3f161ec595"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3025,
+      "steps": 200,
+      "trace_sha256": "e7c850577c36ad27acb6f12b4bbc1438b6cc76bd981f3e1940aed162bfd8af74"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3026,
+      "steps": 200,
+      "trace_sha256": "f8c58b96ea00b862575565c1cd4b18467e382218f04e9f0790a911f486733800"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3027,
+      "steps": 200,
+      "trace_sha256": "ab019311fc451941092348cdca41b688cef52269d94f01c9cdf5a1bac076caba"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3028,
+      "steps": 200,
+      "trace_sha256": "d92ee5a7e3937efd9ce713f8572c902a10f6d83b7800dc8572d39615380ff625"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3029,
+      "steps": 200,
+      "trace_sha256": "08415344cf524dd6ebd67180a9bb7bdce6fd14b45b57f0c409093dbe01079ea3"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 3030,
+      "steps": 200,
+      "trace_sha256": "5ed3c3c9bf8ee21a91e8a9ec9c68326511e2b90828094d9f3d3f0b248a220759"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "d6fb828f9ce508d7143eda36000314ce6e7eb347971f54a9fb45c758a22ede56"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "cddaa92adcbe8c083fc895cb941b18c137317bdc7f66e3f100215aa355d36341"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "c270b568a5c210e31780d20ef931c87be24fc21603e4956c0a3b46497306e44d"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "a6a898caa323fb6d829a0b6558256726ad0a69bd68dc1636d93c38bf5eee40bf"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "b6ff9efb307701557c9d9c87c023cc61eb3a8791782ed9b4055d25fbfe12da43"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "2fdc86c45bbf73a81188817a32d9ae47792e55357a5267d33983be9271457a6c"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "54b5cbf2e0d61ad410f5633cdbfb0479f163fd88ac552e650afc2f537016bec4"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "538a96c4f9ae69df62492d21066474db16440e4c2195451d2aa5a5f53f1178f8"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "5d716c9fdac557b285d50aa01daa1b00f81a1148f74570b2afde0d7b621dcfcd"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "warehouse",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "fc945841769a8e83b3906ebc3681522821f7cdfe7d60e995c7b4fac073cc4132"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "132ab0ea0ba59b5262c21fa9b0831c650c2ae78147f6aac2049d5019c51948d6"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "2d08e4018998928c8866afd1480a018a965293952df89ec621d1b9ab01ef8066"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "d60afef92c5e283a06a060a3d0e63686e46df53a67160383f2a03860a938380f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "718d94efa63029141c1f698c48328d87211f2e0882e468db27e4f7888153a043"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "98c927386c68414ab2809bd3aa175e0836b6fee240922d501822f03e1dd5de92"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "aac673fa6ed80497a49d9df086fb21063f8c186edc9f1d39c325a9a0f61d3137"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "9e4759a1fd8ef950072b8dded986be529c0d3d9cd572e73c2ab00fb96d78ab97"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "a00fbd1853f8e1fdddc8107c66c18eb2dfd716fcd38ec331c9dc016a1586fc95"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "429e60a6da354c61f2757de9bf4090d24e889933d8ac79c19be4b086371f97b1"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "warehouse",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "c138279e8573c588af74f33af43df55169e6433dc1bc078a852ac8e58cb0d61e"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "a6801907d46254c8e605e39f067d6ec17c045bdf12389e6093e848a2cb3b8214"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "db215d3415afdabf0deb8d1265780bef76363d59f1ba2ed3eeacd6c37a9c9157"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "267c04dc52f5892f6818032bf914bbda6ac7d904a10b67b58984ef43a551c75f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "c056ca0d2ed336a9fc14e0e52377e93c3baf160b31f23aef88c13214c3c83614"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "0305de9a48b91c8a3508e0884fe090a422d6be9ed03f0f17779213cd41dc74e4"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "e5dec3f29e2b459866a1c3f976ae7d6ccf4858c0333655ff869cfaddf2a369f7"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "c15e46d404e071b6b107a3351798ffb6139951620a4176f20633e660470e1cb0"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "7dab6fd507f6ebcf435bf3fc42a0360d661c768ed79ca70315da01970a752724"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "ab3eb3ce32dfeb562d76cd6f48d16f8539dbb5d5ecbfb559aec9838c4a888cc8"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "warehouse",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "b866028c90f5c6bbdb956e4abac76a764b5cf64412cee96ab453925fcf8f8c62"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "9d7a83739db0047829d634da35eb42170125be35c9a67a6b384e612a2cf443b2"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "d1362e8e27201590900a0f7047c043e845993d38acf65ec0f9ba37a69c9c4091"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "827b30fa37c1e2ae9fc5ddf3c30244f9e40d9465025d8676121a653d6762ef5d"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "bb8f154344c1d0a7c5a733fa1744ff5302f532d101f71965d8dc6741d8699ef4"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "098f5354ff0cc0fb9feef9d82e4970456eb9cd4e1fb37bd9bd8c6bb5a983356f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "10fb2d974c12ecff7bbe1eea653d1cf7a3a7ef32fab0d04ad09df4765c084ef5"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "cbea9bafb971348c8a3fb69fc41d63286367a8632a0546fa84809dd9c06553b3"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "efbb69e5aeb3688026c8610f7497a073609e7134435761d319a2657ff78a99b7"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "79883245245d35ab663a89f4df0268194d004006fbe47fb21f3c671f72ce89d7"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "warehouse",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "df03c82f54cbd897fdfb9fb1224a3a47c684b6cd5a4022e83da8f2c2436e2efb"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "6fac95aa977cf16b3ee516186c4219ebe275e312be8f743b9268dc279c741bf4"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "c5df2a542efa18cd3ec5eebd9a8eb85de9e5a12927ebbf6d840106385ef46def"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "a14b3b9affdfe9e8c97c1e79c96be39e6a60837055b4c30e85393c8de0ec5493"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "709da7dec211ead35683423be9260beb3e9e9787d7c632a0556047b672983a9f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "7cd27c67f95560f50110a97b926aa7376b4febd2c0f2c7b004b2a6a12f6d2f0f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "a306eec20893266b269a503aac3f311daf4466cbf67e1e238d9116aa2bb03b52"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "0c04bf202706845d2d853a2ebea1db3bc434feeea4b28990eb08f2b9878bb702"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "9f5d9efc99101527741b8e0b088c244934542c10d64faf256e8c433ca8deff1d"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "90a7ba30168f56fb168cb187eb64bc9ea136de1e69fdb2e342c501c9796964a5"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "warehouse",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "c0b36dab65ea4b1747017708f149c43423ce25d3fdbe4e826b4e7d85a418ef3f"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "warehouse",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "7292c268e7f13d2a707b3b0078b4081b56809b1abfd25bba2519a7997f962172"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "warehouse",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "73c4bb5b39b87563ae29751d24c7315e03887a85e76926d8dd23b7ab40bb8d29"
+    },
+    {
+      "description": "Spatial warehouse benchmark with order hotspots, robot proximity and handoff coordination.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "warehouse",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "195fcc1c163203935f934d179332df470e2172caaf0bfa1730926f1a05b69504"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "56f66ebdd8f32794c946bd4c41037b5c6176edcb311fbd51f06a0ef360f72d47"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "a39e9bea9e746d4bda1dd1f3e21f2c44cf832b6e1153352fd0185344f68ea4e3"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "ced7669c0f625454a203bd85a6569c090112974484fe3782d56f1be890f12f0f"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "2aafadc17f468dc2144e28be72256cea0fff6394dfb1c8fc34bfd05cacab1b13"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "14852807751ef3f4f1291efbea48e4a5bd791d0be38e53062861cf469f454eff"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "0319e74990e1bf0c970b856a02ecea6657ae4323174ee10ec6b19c9e28a5dcbe"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "c9a2195288c0dd20b248c4608ec564a65fe5e0cff2906fb622b29f22397496f6"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "0d624598b857fe04687d82a6d67be6375441840a62eb422d586a9d16dd3bd9a8"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "5958be6854efe132063cabf33487583391bfab14cd2047914897c312869f34e1"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "edge",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "c96ebbde8cfe2d2c57062184ba552f7911e320e039b8906e7c6394ee7c3bff93"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "21491bbff09ab5bae5f35750276a226e7063a19d8c2951a21650920370a177f9"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "596c7f2e975d8daefc0037136ac2be684f98ec7a74c13f90238f121ae83b8837"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "1f2509fe73f242c35ad898dc6823fc06db6fbc34d349e1246c53fb73f070d23a"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "e8268e3778f2d124c3808bb11a70ab16f7c32dc969e73c8c4844d7c897cb2be0"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "a13c59ae6801477cda602777841d62d3aae73525081ab89ef18656c56bce68aa"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "245dc0519806b6a86468277023bf512e539da338fadf172d07c0296be94a8755"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "102c8b7ab8c082cba799d58307ec502e3492b53464dbb2569d5f4e138ae68e1a"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "5011cff36a4a352d16a4cf239337207c2f48ec19fe0f3b7f7de49b91a81bad91"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "036b98e3566b6681c37d2e0cd350654ebdbd6406628e7e2c38267c13b0244220"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "edge",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "d8b4adb2ee21b92a25b2a37487ec5b697761f8b4aa37f51f7038a995b1e75e18"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "6855f912eb7eb0a039bdd1481024c91126335266c092bfcfa9c783bd95e1a94d"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "e9648d0410fcd7668dc4f1cb564a9ba53c4f0d463c88b999260d755b851715ba"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "df69b423e0db80901352a90493ada52f145e1bbe5c7b9e41a4877cf2b5f9a3ed"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "c8a980227f258021eec30f17a12c84d5f7b30a5160afbc17a1a456e05a2f0134"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "de71a52130ce66d8f574f13527fba387a5891885eae20ee1e215fc26fdde5ce2"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "8858e1002132abbd23ee8e33472d556e8169b332ab9657a7d15001d40da7fc47"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "26b10c150a7dce5932b136b48e53c1a65d6e6e2d7c431768125da7a0af378b08"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "517429132c4a16f5ab525cab9eee3cee6ef57ba3918e61fe4d52016ba9991cb8"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "21be7119d052f442114ada6b8a46e457be797ca3428f985e609ee7101dea8d41"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "edge",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "76cac7def93c3499cbe16b85ab515484105a5b9b9f7fd78a0c906be91ca3d6ee"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "e98be038a400f8ebcda864352ff3ab322b7de1ff92889d3ee482af6fc9371fb2"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "035b46d42915dafccf0bbf939ce9475c35eb7ca5a4e9cdd2c042233b5f31d21f"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "c1355ab6a0febfc66b34142e266fdf3d2300d3890344cbe3b8a91b1897ac65d6"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "06c2deee899841e1ebb5708d4b639decb19d75301cf9a1732648f0177651f4e6"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "f31f970d42f8ead74864580e1359713ee9a9daf59caaf56665ba07000404c346"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "06278eec0020af6dc42c37e1c72f4e2e9140288a1ea258e5432bbf5a3b8bd686"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "e833cc286ce0cfe61649317aad96655f58914d10c00ffa214fdbc2703fa11518"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "f0ed2bb21f1471a741981fad4d1a6583d6fb67ffc59c4525faac559b988a6619"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "9302a1298cef4918d093bb8385918adb507614838b6fb1b50d1c76979f5b7aa0"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "edge",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "4137d46045f8d9cbb9403d50965a14281821efce775aab9f4d3ab2559c75d40e"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "f46ad36cb02fd064b23de7dcd7f6fd814a1331d6365508e8f339a89d21431b79"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "4dc3f08a49e8cfaaf541a0552c1ddc61635a155c8794d0a6c931b42077a65991"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "58bf2668188cfb1dee32c1547f856b3b85a9709df098a53ac0f97b93a06a544f"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "a64651c6c596cc4aff20d3460c8836a348d4ef5b2b9771ab0b7c3e4badfd7065"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "d57824fe82061e36c546586ce5c9498ad18be86a4fcbdd9e45e2b781eb6dac54"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "f6d76d07058e2cec1613f9b75157ab7ad6bdad3706c559f0a1c007999cee7001"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "7d75b8cbe4280bcc055247d2be98065aea8be903d7057dc058f9447e20746f7a"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "2d4c16ffe9c64264fef4ccc704e622b3234ec36ec808866b4d835e0686ca5e83"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "77154836009b774076c8bc031e6dc6d6840448ef14e7032c89917b1cd252ece5"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "edge",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "e19d83d02786ff575aed1a7428359960d69a83cd5041144b65d0f5ed7cd5df77"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "edge",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "9805d7d8e6af8934149628dce0e6829291f43cba2ff3992e284174bb4b7a6380"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "edge",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "ba87a94819b6844fbb6350d3c820c4ae1908a0ee7359c9eab86f56a6c4960a11"
+    },
+    {
+      "description": "Edge/service benchmark with regional demand, service-call graphs and network-latency-weighted traffic.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "edge",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "5303b11baa9d21b715680ef3d4401a6b4ac29113b81db6c786bd5a061cc41ba3"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "3a43b99793d81ff429cbed11c86e27bc0feb024b56e34245ed7d48eb74656616"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "4d25f9d591efe2a4c161c80c3eaaf2a8bbb451ef7e3bcc32c0016bf59fcc6035"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "91085cdf5087b488c17f00cddaa343f3fa46e296f59fe82cdbc46827c8017611"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "27f3b744a26d4f3544d9d6613d7ff91d9ea12d26f63930230b78000d39e4dbca"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "9498da3d6b70a474df47287162e0706db6259a00f513ea1f00e42a1811164551"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "ace8e38476d3880a0a3b067d5c51a468e5fe2da31fefdd600451801ca63b8e27"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "7d149654a0aeae451e8e8451aafec1e6d68990646ce140ac7163bddf8aa22656"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "7def4f9024c87394d93b51a3b6f8aa3c80ba1a6873cd15cd646b1bbbb319d60d"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "25cf3e68cb46d9ec48e97377aa642c46588c47ee3dccb2dd058cfd8ae840af7b"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "enterprise",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "84e7c5c7a2f347b69abb3901cac5c45a9958baf48f393869ff1f6a2f21584e1b"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "c1bdeb0ed38673b6d9f13f3c441b5d4e48fa9fa7db077148f46f4fe82ed8ef3e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "dfeb6b169e03646359a774fd77221efebc3960864cec9a6dc23f6b7346c9de59"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "c6a4e7e30d3d538a3e47e19002b26232373f1f7acd409dd88628f84347a644d3"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "74e487a21c750757f6fe4540c882e46f922db530ea8f37c63de29af021fd233c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "144522b29248b1cf07561df47bae29fb9b281d7441121004502bb623f49529ae"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "0cba07181f198856c75d8e4be10d073207300cfd4393c216b46048f96a6117a8"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "b3f53deaf1e3c4d0411fd492f9f8805cf1b35d7b79c8c2ed099dcea4dad4a1af"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "bdae561a00ca24d9b4a8b221b9944d13bf0aba9b5960dd301d66caf22ebfaf4c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "836aca5a4cbc928bbe128cc26acbd36e87ddf0ccca92d65f61f6b3ee0b770ef1"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "enterprise",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "557e51d9304985407d35dcee2c90cf176507687246576c8acd5f9cc5ecbedabd"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "0fa958e435676c295b7746ddca9288bc5937ae91f4348cddb25aaee370f5cd34"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "4bafcc5e6dd60518bb8dc626b2eb9009e8af1253b545fea2de5c1aa19cc06055"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "54dcdf9041c68a1298bbfd222d8a97dcb6beb211afcbf6c9491f1afc0fc00ecd"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "a1d8fd3628ca9b4d0d39573afd10fb981474cedc0893ca13b74944d94ebc5c48"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "e31488a0c26b5c897044ac3ed60268350a836551d48e9d9f3a4457e80151bf22"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "ac4dc3b2b20ea3592e8f319c57ba50b8640e0a2cff8c08a64d1fa0a7c227c74d"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "4b988fcc81e044062e7faa472e5d38ad80d99d09bd645cf937303d8e73100e16"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "5e504a62bedc9e92062e61a2b137be092bd2db88d3409eb027dca8ac3a82bafb"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "058964bf464d631660895499444186197f03a8e3d11acce410c88ca60ea578fd"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "enterprise",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "b533dbc3a214edf176f93b8d9aef3c30b256f99ecb81b3907689bdfac0b01a0c"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "c7e662cf5538bf927a3b2674de23ab781fd5e3128e7323b27281587a845e0c95"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "f94cc85ba2853e90ca596ac4e300cd41e1172b94d19ffdb97fe970b0d393ccea"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "6f522b3f9373c80960b9227b305f48d3a3884d81cc6a05eedd63e26c384241a6"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "088dfd47481360bd8cc342fff5a8301daa9a7f62f7e304122cd034d968b4f03e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "365bb6f84aafd722887de575d90081069ae307b6ac6c918d5b119f3d6b585da1"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "fd20ef96b8b4348bd970ded70e4104a458f6fe741427bb1343207268e9fa39b9"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "40fe6c557c44affe84f643f3a11b17c981174190ececb430bd62f09e8287de72"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "ff1fb191b6c817c901bd15304b7e199ec38c21921424d9622619c7255d0ebe9f"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "c1916cb6efb88d1ff7e83ebbf45b0b9eaea3c5b367a3776191da54d876175a57"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "enterprise",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "ae09d15a4a85990ce14c5911b97c1d7b5c2a6a5c836050db922aff7b4d2e733b"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "f17ee4f801c7ee5db9b18febda97dc398a7e47de428526809c20bd73e83cdd6e"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "dd35105a0cc175d5aa5f879fd2554c54b4b76ee65eea6c4b53ea6eae2308e1e4"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "f91e1388b10bca5fbd5c3a9317545c2b33fb04b9eb33229e6f13855638be00db"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "105d2696abca05c7d86370a8331218aedbbd0b125f93f888871dcef2ccb6a57a"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "8fa26499105d092b8a41101d39c66164ac9d12a275505cb67e360628e05b86e5"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "0bd6afc17b5c5fc0d98f66de867499d3b06aea2f4712cd31a570c3a9def83396"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "646e509c2c3067a71ffbb3d130ed31d716c115840168e606fa95967c170ef414"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "ce19ba388a0ef599ae072e93de189283a353f586d3d48cb3b1e047fc4936ecff"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "758faf0cd43b0db95890ea288b7ba8c5b45296e0b344d7f0f72961bc5a2ce108"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "enterprise",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "bb5d59b72843a7df8ec733de307a163417aa11f33f3d0f6ee121991e7b61c610"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "enterprise",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "19bda980a0dace9cdad6dfa67ddc843fcc3e912384631aac44ad39609954830b"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "enterprise",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "64395dd317b647c8e7c1f109be145cdb062b21cc3577150e2f8b3e2fa8333a2b"
+    },
+    {
+      "description": "Project/enterprise benchmark with skill profiles, project memberships and task-dependency collaboration.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "enterprise",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "92f64b396c289a845887138812f5bc22c52905398ade6ae7e57d8fc004219f87"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "7c14ac4a86c70fb12e9a7e3bb74e99bac6d9e13a52b2f5dbca421e397f5c1bd8"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "22041556b7979de28a059b10e11f2e11e29973944ff033a81537efde24d94123"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "572b22ce5e253e30f2669811a83613f3f7b8b4dceece413c8bd5e2b10d5ced1c"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "4a777fbbddde7a943f3f84edb84571d7be6ded0305a39ece2d4f8d913f22ee29"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "8355ca54330f7bb636c712b89246e656735c7c4cb61ab65217b0738fc34a3eda"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "8c2d594f6745103b81d144c79d9e58e83a5a39f3c53092c004e71d4b32e4e841"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "ef3573b9dfe4a1f7acc0868e1db6028ed252589a413fcc5749efe9d5af139a4e"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "9e48d64f895d46520b714d4ee8670622fe41edae7ae82575c3ddc7162f555f36"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "39cc85dc5ad3451b7bba6c855841b7366778fd2e48cdf3117ffec6fcad058615"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 4,
+      "n_agents": 32,
+      "scenario": "hpc",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "ed0152d95110dbbad465cce4a95620317b532ce815ce8203422c5fb2fbdcfad4"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "39f57841c6bb537c63a5e37fa4c6c11530dc58a1956940715008ba322d79706d"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "1aafe843c7bdfa8556234f35e302baae1c847cffd655feefabdea8f665dc1601"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "fca072494dbf91493839c807984ea9eaab3719794bfdd24192ac502891fffa20"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "c2a6ce8bd5e6bce8b086dca8c8cba1ef7db740653e8fe983c76aedfa922ad4b7"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "d201fd99af4c811aacf59d16a82a59e66e3fce4d02767aeb8a84ee3abc98026c"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "8e52b085dc342d47b1d01a7ea71111a8ab2537c01da6810d504fa38486af1dde"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "03408c85e421bef6d8713992963d0dc8ab4c9a4d5c19459ffb7ea413646de4ce"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "33e8da84b0fa110e748f4a79d6caeb452d577ba0be5307513352b54de41a2bb9"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "0fd34ed6ecf9322e7f9b9f1340e703d4bd9d98ebf7cd8dbe1b49d8452e61be38"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 8,
+      "n_agents": 64,
+      "scenario": "hpc",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "4c9d2e82c4964ab1b0c817542b459a6e76100207f17e96205c2d497a0486b4ba"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "91d165e002164f71532ffc9ad0b40993e6fd713292c6fb08eba0cada07a4ae4d"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "94378c19de5fa7749c18edc991671bec92c393c9cd08af1430b58ad11d779a95"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "4291735bc4e40cdde7b0e67a8740d68edb5d737389ea284187fbb91e2abe4522"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "d52a83b68a07242132d673d9cc6991e86fedddd74337ec914a38fa2903b2d871"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "8d2cc669b35acb469ed56a99cddd7f233016356aaccf58933cc61308b19a23e4"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "d3f6e001c0d325a5f1a35505ad70cf969eaadd5bfd29a315729a24cc6b7aea35"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "32ef58d6b877c22796567f7003d80db3f09710b87e3df42f7b7e6e6525ebb703"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "0ef615ec383d968f5d030f97fa4f2c487780171c75ddb868802e5feb293bc4e0"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "5a6d7c13db50a052adc6b5ca463c23f2e214cfc4faca8899b1bc95a602f41552"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 16,
+      "n_agents": 128,
+      "scenario": "hpc",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "d0f8eaddf5897a45c105a504d106eea1fd10301884d3711716b89d9694266de0"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "a166d6d9363f4701d42263965d7edb86a7855a210253f0b4bca404ae26cf1f9f"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "9f816743143513dc9feb6b49aa49ca3bacca928b628c5e8e7b7afa012d7bf777"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "25b6540e85586b9844b814efd248a9c2236022704722974a6ac175258dff9f98"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "c827090b084a180c4f7e647214a057aaea6caa96d6ee62d86473ff6bd311c4f1"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "0fef9d7db949454aaefcc52ce59987039c05f1c57eca0216ac884e851bcb7832"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "bf1085b81bef2bc1a306bd9a5e9bee7862c1bf29bc873074a2c5de8e0d0a3d94"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "84b8cb365df9565701e02caf99961f0dd481175ff5cf16b87b507a6459022b41"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "23ab08cdd84fe9ad347ce555173c230962523763318d63fcc162f8e12f0a9472"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "2208f95604d60e384b1fce22be733ead06a7e9075723fa1569e5e3d1e9a9c31a"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 32,
+      "n_agents": 256,
+      "scenario": "hpc",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "524b75013d0376cc7f4203d220fb4138f59c77c1976a26f5d1f3a54a1c93b637"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "3588ad27040b187c6b3ccd520735636bcc80116d6772749bf3946be3b0af2699"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "b9417c74b7d90c755d53c0d8ccbc12a3fed2da234d925c2028988cd814bcc59b"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "20d95e9eb7f006207f8b756e4efc1e0c3c9cc14fae1ce12c321798f174a7a6a7"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5004,
+      "steps": 200,
+      "trace_sha256": "52c3a240f3c41acdf9c0952cc0d971e88c56f7277df62a56198ce0c71e85d598"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5005,
+      "steps": 200,
+      "trace_sha256": "e1d2b6fe9530dbaf3e5219f4e398d479c7315f9f9efcff21d1f91a6c75f6d3a1"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5006,
+      "steps": 200,
+      "trace_sha256": "3405e0281ce1bd1c05eea46a7da46d3420c61e79ced2f30d3170763d661463a9"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5007,
+      "steps": 200,
+      "trace_sha256": "673be96cfac158755ae05b339404dcc283224b086a3500234b619079495e5b12"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5008,
+      "steps": 200,
+      "trace_sha256": "caa37684fa827d7f4de5217cf047694b409a276acb36e0c8160d6a92f3a2c581"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5009,
+      "steps": 200,
+      "trace_sha256": "474502f361748641941a019475b9baadcc543adf810f784dad926567480d1206"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 64,
+      "n_agents": 512,
+      "scenario": "hpc",
+      "seed": 5010,
+      "steps": 200,
+      "trace_sha256": "3b253c4e63d08585df10f2c2d06a4c7d07782a3e93972fd7632310f0bdfbadd4"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "hpc",
+      "seed": 5001,
+      "steps": 200,
+      "trace_sha256": "8dbfae7ac48a51b95db415432c57c3dd15880a2496401c97de54877d709a898a"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "hpc",
+      "seed": 5002,
+      "steps": 200,
+      "trace_sha256": "7954ce21101899614bdb17d5494242ce3bf4ebcc23d7af6ae3bfcfa372fbd5dc"
+    },
+    {
+      "description": "HPC benchmark with migratable grid work units, stencil-like communication, hotspots and stragglers.",
+      "generator_status": "publication_pilot_domain_specific",
+      "initial_n_units": 128,
+      "n_agents": 1024,
+      "scenario": "hpc",
+      "seed": 5003,
+      "steps": 200,
+      "trace_sha256": "f315a2ecb72dc7b17b33da36ed09d77560d6bbe43c774d83a8cbbfc55d072282"
+    }
+  ]
+}

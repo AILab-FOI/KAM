@@ -1,0 +1,7 @@
+# Exact Python versions used for the paper experiments.
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+networkx==3.4.2
+igraph==1.0.0
+pytest==9.1.1
