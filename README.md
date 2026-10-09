@@ -1,4 +1,4 @@
-# KAM-Bench: Organizational Adaptation for Dynamic Multi-Agent Systems
+# KAM: A Holonic Organizational Adaptation Framework for Dynamic Multi-Agent Systems
 
 This repository contains the simulation framework, algorithms, benchmark scenarios, and
 reproducibility material developed for the study of **KAM-based organizational adaptation
