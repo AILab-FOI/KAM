@@ -10,4 +10,5 @@ authors:
 
 repository-code: "https://github.com/AILab-FOI/KAM"
 version: "0.4.0-paper"
+doi: "10.5281/zenodo.23270367"
 license: "AGPL-3.0-only"
