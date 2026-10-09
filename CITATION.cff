@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper and software release."
+title: "KAM: A Holonic Organizational Adaptation Framework for Dynamic Multi-Agent Systems"
+type: software
+
+authors:
+  - family-names: Schatten
+    given-names: Markus
+    orcid: "https://orcid.org/0000-0001-6910-8675"
+
+repository-code: "https://github.com/AILab-FOI/KAM"
+version: "0.4.0-paper"
+license: "AGPL-3.0-only"
