@@ -364,12 +364,6 @@ This research has been financed by NextGenEU project **AI-ARENA Framework for Et
 of AI Agents in Multidisciplinary Research of the Digital Society** (*Okvir za etičku upotrebu
 AI agenata u multidisciplinarnim istraživanjima digitalnog društva*).
 
-## License
-
-A software license has **not** been selected automatically by the cleanup script. Before making
-the repository public, add an explicit open-source license appropriate for the project
-(e.g. MIT, BSD-3-Clause, or another license approved by your institution).
-
 ## Contact
 
 Please use the corresponding-author information from the associated manuscript or open a
