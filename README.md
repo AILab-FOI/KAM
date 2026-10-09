@@ -358,6 +358,12 @@ The work extends the KAM-to-MAS research line initiated in:
 > M. Schatten, *Complex Analytical Method for Self-organizing Multiagent Systems*,
 > Central European Conference on Information and Intelligent Systems (CECIIS), 2012.
 
+## Citation and archival release
+
+The software release accompanying the manuscript is archived on Zenodo:
+
+https://doi.org/10.5281/zenodo.23270367
+
 ## Funding
 
 This research has been financed by NextGenEU project **AI-ARENA Framework for Ethical use
